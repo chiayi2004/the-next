@@ -1,0 +1,9 @@
+{
+  "source": "向主懺悔.pdf",
+  "sourcePages": 8,
+  "sourceSha256": "bd16c5ea79d0087f34e7ed5e763a98e840d62df6e884f99113a50ab638f87ef5",
+  "contentSha256": "d156690e7327f74c2044b98520a9fedb6074b1932e26db9e57dad7a4ebf92eca",
+  "characters": 7801,
+  "paragraphBreaks": 67,
+  "extraction": "保留全文、原有段落與場景間距；移除 PDF 標題、頁碼及行寬造成的斷行；僅將康熙部首字元轉為相同字形的一般中文字，不修正文句。"
+}
