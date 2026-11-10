@@ -1,0 +1,9 @@
+{
+  "source": "夏‧日‧祭.pdf",
+  "sourcePages": 9,
+  "sourceSha256": "80311495b6820ab7d8f71b95ceb00b6143e8d741fe08aa4ee282fd9776a461e8",
+  "contentSha256": "7fe5ef108e79ab9165a6c8dd24894931d3f7f04863a8429d4e3ed1bc2acee876",
+  "characters": 5720,
+  "paragraphBreaks": 52,
+  "extraction": "移除獨立書名行，按原稿縮排還原段落，合併版面自動換行；全文文字與標點不改寫。"
+}
