@@ -1,0 +1,7 @@
+import type { CSSProperties } from 'react';
+import type { Book } from '../types/book';
+import { tags } from '../data/tags';
+import { Ornament } from './Ornament';
+export function BookPreview({book,onRead,onClose}:{book:Book;onRead:()=>void;onClose:()=>void}) {
+ return <div className="preview-layout"><div className="cover-stage"><div className="cover" style={{'--book-color':tags[book.primaryTag].color} as CSSProperties}><div className="cover-border"><span className="cover-kicker">THE NEXT · COLLECTION</span><h2>{book.title}</h2><Ornament tag={book.primaryTag} className="cover-emblem"/><span className="cover-author">{book.demo?'示範藏書':book.author}</span><span className="cover-volume">VOL. 0{book.shelfOrder}</span></div><div className="paper-tags">{book.tags.map(tag=><span key={tag}>{tag}</span>)}</div></div></div><div className="book-intro"><span className="eyebrow">書架上的另一個世界</span><h2>{book.title}</h2>{book.subtitle&&<p className="subtitle">{book.subtitle}</p>}<div className="book-meta"><span>{book.status}</span><span>{!(book.hasChapters??book.chapters.length>1)?'短篇':book.chapters.length+' 章'}</span>{book.demo&&<span>示範作品</span>}</div><p className="work-credit">{book.author} · 寫作日期：{book.writtenAt?book.writtenAt.replaceAll("-","/"):"未知"}</p><p className="summary">{book.summary}</p>{book.demo&&<p className="demo-note">本書與內文皆為介面示範，並非作者正式創作。</p>}<button className="primary-button" onClick={onRead}>翻開閱讀 <span>↗</span></button><button className="text-button" onClick={onClose}>← 放回書架</button></div></div>;
+}
