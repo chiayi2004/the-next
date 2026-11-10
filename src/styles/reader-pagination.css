@@ -1,0 +1,13 @@
+/* Only body layout changes here. Paper, running heads, footer and binding retain their existing styles. */
+.reader .reading-page{border-right:1px solid transparent}
+.reader .reading-page:nth-child(2){border-right:0}
+.reader .page-prose{display:flex;flex-direction:column}
+.page-heading{flex:0 0 calc(18px * 2.3 + 34px);min-height:0;white-space:normal}
+.page-heading h2{line-height:2.3}
+.page-body-slot{flex:1;min-height:0;position:relative}
+.page-body{height:var(--reader-body-height,100%);width:100%;overflow:hidden}
+.page-text{white-space:pre-wrap;overflow-wrap:anywhere;padding:0;margin:0;min-width:0;line-height:inherit;font:inherit;letter-spacing:inherit;tab-size:4}
+.reader .page-prose>.page-heading,.reader .page-prose>.page-body-slot{animation:none}
+.reader-line-probe{position:absolute;visibility:hidden;pointer-events:none;white-space:pre;width:max-content;line-height:inherit;font:inherit;letter-spacing:inherit}
+@media(max-width:760px){.reader .reading-page{border-right:0}}
+@media(max-height:600px){.page-heading{flex-basis:calc(16px * 1.8 + 12px)}.page-heading h2{line-height:1.8}}
