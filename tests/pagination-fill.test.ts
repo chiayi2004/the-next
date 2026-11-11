@@ -11,6 +11,16 @@ test('不再退回句號或段落邊界，每頁取量測允許的最大前綴',
  assert.equal(pages[1].content.length,100);
  assert.equal(pages.map(page=>page.content).join(''),content);
 });
+
+test('手機量測不會反覆建立半本小說大小的候選頁',()=>{
+ const content='甲'.repeat(20000);
+ const book={...demoBooks[0],chapters:[{id:'one',title:'長篇測試',order:1,content}]};
+ let largest=0;
+ const pages=paginateToFit(book,page=>{largest=Math.max(largest,page.content.length);return page.content.length<=100});
+ assert.ok(largest<=256);
+ assert.equal(pages.length,200);
+ assert.equal(pages.map(page=>page.content).join(''),content);
+});
 test('跨頁不拆散組合字或 emoji，字元範圍連續且不遺漏',()=>{
  const content='漢a\u0301👨‍👩‍👧‍👦🇹🇼。'.repeat(80);
  const book={...demoBooks[0],chapters:[{id:'one',title:'測試',order:1,content}]};
