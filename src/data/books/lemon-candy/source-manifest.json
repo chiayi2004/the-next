@@ -1,0 +1,11 @@
+{
+  "source": "所以變成了檸檬糖.pdf",
+  "sourcePages": 17,
+  "sourceSha256": "dc43297c297241da07b34f2eac26d5a07a5aaf183e0a4391280007633720bead",
+  "contentSha256": "46b7ddfb90f937731db10852ac4d2eaea300e4bfa479ab69e110f135646f29dc",
+  "characters": 13050,
+  "paragraphBreaks": 187,
+  "writtenAt": null,
+  "dateSource": "作者明確表示寫作年份未知；未採用 PDF 建立或修改日期。",
+  "extraction": "移除獨立書名行；依原稿縮排還原段落，合併版面軟換行，保留所有場景分隔、文字與標點，不修正文句。"
+}
