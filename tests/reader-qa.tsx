@@ -9,6 +9,12 @@ import {mistIslands} from '../src/data/books/mist-islands/index';
 import type {Book} from '../src/types/book';
 import '../src/styles/main.css';
 
+// Reproduce a mobile connection whose font promises never settle.
+if(new URLSearchParams(location.search).has('pending-fonts')){
+ Object.defineProperty(document.fonts,'ready',{configurable:true,value:new Promise(()=>{})});
+ document.fonts.load=()=>new Promise(()=>{});
+}
+
 const sample=(title:string,contents:string[]):Book=>({...summerFestival,id:title,title,hasChapters:contents.length>1,chapters:contents.map((content,i)=>({id:`chapter-${i}`,title:`第 ${i+1} 章`,order:i,content}))});
 const cases=[
  sample('一般短段落',[('這是第一段短文，用來確認段落自然接續。\n\n第二段接在同一頁，不強制另起新頁。\n\n').repeat(15)]),

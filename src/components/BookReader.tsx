@@ -4,6 +4,7 @@ import { getPageHeading, pageTextParts } from '../pagination';
 import type { Page } from '../pagination';
 import { clearReaderCache, measureReader } from '../reader-layout';
 import type { ReaderMetrics } from '../reader-layout';
+import { watchReaderFonts } from '../reader-fonts';
 import '../styles/reader-pagination.css';
 
 export function BookReader({book,onClose}:{book:Book;onClose:()=>void}) {
@@ -32,7 +33,7 @@ export function BookReader({book,onClose}:{book:Book;onClose:()=>void}) {
   useLayoutEffect(()=>{
     const space=slot.current,paper=body.current,content=text.current;
     if(!space||!paper||!content||!root.current)return;
-    let disposed=false,ready=false,timer=0,frame=0,fontJob=0;
+    let disposed=false,ready=false,timer=0,frame=0;
     const reflow=()=>{
       if(disposed||!ready||!surface.current||!measure.current||!root.current)return;
       measure.current.style.height=`${surface.current.getBoundingClientRect().height}px`;
@@ -44,16 +45,7 @@ export function BookReader({book,onClose}:{book:Book;onClose:()=>void}) {
       setLayout(next);setIndex(Math.max(0,found));setBusy(false);
     };
     const schedule=()=>{if(disposed)return;window.clearTimeout(timer);cancelAnimationFrame(frame);timer=window.setTimeout(()=>{frame=requestAnimationFrame(reflow)},120)};
-    const fontsReady=()=>{
-      const job=++fontJob;
-      ready=false;
-      void (async()=>{
-        try { await document.fonts.load(getComputedStyle(content).font,book.chapters.map(chapter=>chapter.content).join('')); } catch { /* The same fallback font is measured and displayed. */ }
-        await document.fonts.ready;
-        if(!disposed&&job===fontJob){clearReaderCache(book);ready=true;schedule()}
-      })();
-    };
-    const fontsLoading=()=>{ready=false};
+    const fontsReady=()=>{clearReaderCache(book);ready=true;schedule()};
     const observer=new ResizeObserver(schedule);
     if(surface.current)observer.observe(surface.current);
     observer.observe(space);
@@ -61,11 +53,8 @@ export function BookReader({book,onClose}:{book:Book;onClose:()=>void}) {
     const media=matchMedia('(max-width:760px)');
     const changeMode=()=>{setSingle(media.matches);schedule()};
     media.addEventListener('change',changeMode);
-    document.fonts.addEventListener('loading',fontsLoading);
-    document.fonts.addEventListener('loadingdone',fontsReady);
-    document.fonts.addEventListener('loadingerror',fontsReady);
-    fontsReady();
-    return()=>{disposed=true;window.clearTimeout(timer);cancelAnimationFrame(frame);observer.disconnect();media.removeEventListener('change',changeMode);document.fonts.removeEventListener('loading',fontsLoading);document.fonts.removeEventListener('loadingdone',fontsReady);document.fonts.removeEventListener('loadingerror',fontsReady)};
+    const stopFonts=watchReaderFonts(document.fonts,getComputedStyle(content).font,book.chapters.map(chapter=>chapter.content).join(''),fontsReady);
+    return()=>{disposed=true;stopFonts();window.clearTimeout(timer);cancelAnimationFrame(frame);observer.disconnect();media.removeEventListener('change',changeMode)};
   },[book]);
 
   const turn=useCallback((direction:number)=>setIndex(previous=>Math.max(0,Math.min(last,Math.floor(previous/step)*step+direction*step))),[last,step]);
