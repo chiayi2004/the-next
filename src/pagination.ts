@@ -21,7 +21,16 @@ export function paginateToFit(book: Book, fits: (page: Page) => boolean): Page[]
     const pages: Page[]=[];
     for(let start=0;start<boundaries.length-1;){
       const candidate=(end:number):Page=>({chapter:chapter.title,chapterId:chapter.id,content:chapter.content.slice(boundaries[start],boundaries[end]),start:boundaries[start],end:boundaries[end]});
-      let low=start+1, high=boundaries.length-1, end=start;
+      // Bound the search near this page, rather than laying out half the remaining
+      // novel on every page. This avoids huge synchronous layouts on phones.
+      const remaining=boundaries.length-1-start;
+      let span=Math.min(32,remaining),end=start;
+      while(fits(candidate(start+span))){
+        end=start+span;
+        if(span===remaining)break;
+        span=Math.min(span*2,remaining);
+      }
+      let low=end+1, high=end===boundaries.length-1?end:start+span-1;
       while(low<=high){const middle=Math.floor((low+high)/2);if(fits(candidate(middle))){end=middle;low=middle+1}else high=middle-1;}
       if(end===start)throw new Error('紙面空間不足，無法容納一個字元。');
       pages.push(candidate(end));start=end;
