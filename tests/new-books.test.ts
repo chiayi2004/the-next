@@ -9,10 +9,10 @@ import {tags} from '../src/data/tags.ts';
 import {paginate} from './helpers/paginate-with-character-budget.ts';
 
 test('兩本新作均使用預設筆名，寫作日期明確為未知，完整沿用既有書庫',()=>{
- assert.equal(books.length,4);
+ assert.equal(books.length,5);
  assert.equal(new Set(books.map(book=>book.id)).size,books.length);
  assert.equal(new Set(books.map(book=>book.slug)).size,books.length);
- assert.deepEqual(books.map(book=>book.shelfOrder),[1,2,3,4]);
+ assert.deepEqual(books.map(book=>book.shelfOrder),[1,2,3,4,5]);
  for(const book of [whaleBoy,lemonCandy]){
   assert.equal(book.author,'木頭人');assert.equal(book.writtenAt,null);
   assert.equal(book.hasChapters,false);assert.equal(book.demo,false);

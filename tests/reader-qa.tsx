@@ -5,6 +5,7 @@ import {clearReaderCache,measureReader} from '../src/reader-layout';
 import {pageTextParts} from '../src/pagination';
 import {summerFestival} from '../src/data/books/summer-festival/index';
 import {confession} from '../src/data/books/confession/index';
+import {mistIslands} from '../src/data/books/mist-islands/index';
 import type {Book} from '../src/types/book';
 import '../src/styles/main.css';
 
@@ -18,7 +19,7 @@ const cases=[
  sample('引號與特殊符號',['「引號」『內引號』【書名】《作品》〈篇名〉——……•※★，á、👨‍👩‍👧‍👦、🇹🇼、𝄞，以及 50% & <tag>。\n'.repeat(60)]),
  sample('章節結尾與全文結尾',['第一章正文，長段落跨頁。'.repeat(80),'第二章正文。\n\n'.repeat(23),'最後一章很短，這是全文結尾。']),
  sample('奇數頁的短篇',['一頁就能放下的極短作品。']),
- summerFestival,confession,
+ summerFestival,confession,mistIslands,
 ];
 function App(){
  const [selected,setSelected]=useState(0),[report,setReport]=useState<any>(null),[font,setFont]=useState(false),[large,setLarge]=useState(false);
