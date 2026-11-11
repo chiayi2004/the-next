@@ -1,0 +1,11 @@
+{
+  "source": "住在鯨魚肚子裡的男孩.pdf",
+  "sourcePages": 8,
+  "sourceSha256": "5d9e4a62f8646e26826804ee1521a8dab624f3b609fcd983cde4c5c0c161c467",
+  "contentSha256": "15121e255e868308b104c1af1c7a45ed29f522b2b86781d0b286c3655bae3571",
+  "characters": 6594,
+  "paragraphBreaks": 80,
+  "writtenAt": null,
+  "dateSource": "作者明確表示寫作年份未知；未採用 PDF 建立或修改日期。",
+  "extraction": "移除獨立書名行；依原稿縮排還原段落，合併版面軟換行，保留所有場景分隔、文字與標點，不修正文句。"
+}
