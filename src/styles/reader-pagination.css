@@ -1,4 +1,5 @@
 /* Only body layout changes here. Paper, running heads, footer and binding retain their existing styles. */
+.reader-dialog{height:min(94vh,850px);height:min(94dvh,850px)}
 .reader .reading-page{border-right:1px solid transparent}
 .reader .reading-page:nth-child(2){border-right:0}
 .reader .page-prose{display:flex;flex-direction:column}
