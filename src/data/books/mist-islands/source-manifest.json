@@ -1,0 +1,48 @@
+{
+  "title": "迷霧群島",
+  "author": "木頭人",
+  "writtenAt": "2023-12-05",
+  "extraction": "PDF 原文逐章擷取，保留段落與標點，合併版面自動換行；將字型中的康熙部首替換成同字義標準漢字，未改寫故事。",
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "第一章 白霧裡，藏著什麼？",
+      "source": "第一章 白霧裡，藏著什麼？.pdf",
+      "sourcePages": 3,
+      "sourceSha256": "766fdb9242a264db8a0ce49d7e2c646a446c89b33b9565aa1f4e0840a727a248",
+      "contentSha256": "65c25717fc86354d7da3bb28930475d12e902aeeada52b748e93b46d4163b306",
+      "characters": 2494,
+      "paragraphBreaks": 36
+    },
+    {
+      "chapter": 2,
+      "title": "第二章 親愛的爸爸和媽媽",
+      "source": "第二章 親愛的爸爸和媽媽.pdf",
+      "sourcePages": 4,
+      "sourceSha256": "658931351eb3b6bbf9dde4bc3d8f827603f95b85555ec3d60e9eaeebe6a71077",
+      "contentSha256": "c40314f60e7d71caedbe90644b5aedb739cc3d037cc5261861de94674c84ae20",
+      "characters": 2960,
+      "paragraphBreaks": 64
+    },
+    {
+      "chapter": 3,
+      "title": "第三章 你好呀，我的洋娃娃",
+      "source": "第三章 你好呀，我的洋娃娃.pdf",
+      "sourcePages": 3,
+      "sourceSha256": "2b7d601c811a7c2913147b2237b218fb43b7b0db4de3b319ddc1ce1a165c5dc9",
+      "contentSha256": "edab1b7f948009bfc570dce2739754fdf3bb996898050dc6df295901925b3b14",
+      "characters": 2563,
+      "paragraphBreaks": 46
+    },
+    {
+      "chapter": 4,
+      "title": "第四章 娃娃為什麼哭泣呀",
+      "source": "第四章 娃娃為什麼哭泣呀.pdf",
+      "sourcePages": 3,
+      "sourceSha256": "2f22ff38726ec746563d26d224bdc292c8b021477ce7e49cf9e2334e14a4a5df",
+      "contentSha256": "72dafd6a2fc1ebfaab6f73dd5ab9eac0ad710a285396408f8209349f9f5ea5a8",
+      "characters": 2392,
+      "paragraphBreaks": 42
+    }
+  ]
+}

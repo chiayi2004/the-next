@@ -1,4 +1,5 @@
 export const tags: Record<string, { color: string; motif: 'moon' | 'flower' | 'house' | 'key'; label: string }> = {
+  怪談: { color: '#43505a', motif: 'key', label: '迷霧與不尋常的生存規則' },
   奇幻: { color: '#344b40', motif: 'moon', label: '星月與未知之境' },
   悲劇: { color: '#704443', motif: 'flower', label: '花落之後的餘韻' },
   童話: { color: '#746b50', motif: 'moon', label: '月光裡的想像' },
