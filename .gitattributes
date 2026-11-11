@@ -1,0 +1,5 @@
+* text=auto
+src/data/books/confession/content.txt text eol=lf
+src/data/books/summer-festival/content.txt text eol=lf
+src/data/books/whale-boy/content.txt text eol=lf
+src/data/books/lemon-candy/content.txt text eol=lf
