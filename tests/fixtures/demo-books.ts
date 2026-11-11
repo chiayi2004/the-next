@@ -1,0 +1,12 @@
+import type { Book } from '../../src/types/book';
+const chapters = (place: string) => [
+  { id: 'chapter-1', title: '第一章　一扇未關的門', order: 1, content: `【示範作品】以下為 AI 生成的介面測試文字，並非作者的正式創作。\n\n傍晚抵達${place}時，雨正好停了。屋簷上最後一滴水遲遲沒有落下，像是這座小鎮還捨不得把白天交出去。我收起傘，站在一扇半開的門前。\n\n門後有一盞燈。燈下是一張空椅子，椅背上搭著舊外套，桌上的茶還留著一點溫度。沒有人問我從哪裡來，也沒有人催我進去。\n\n我在門邊等了一會兒，聽見遠處傳來翻書的聲音。那聲音很輕，卻讓我想起小時候，每次睡前總有人替我留下故事最後的一頁。\n\n「你可以先坐下。」有人從書架後面說。我這才發現，自己一直緊緊握著那封沒有地址的信。信封的邊角已經被雨水浸軟，裡面的字卻還沒有模糊。\n\n那天晚上，我沒有立刻把信打開。我只是坐在燈下，看著街上的光慢慢熄滅，第一次覺得，不知道下一步要往哪裡走，也可以是一種開始。` },
+  { id: 'chapter-2', title: '第二章　留下來的光', order: 2, content: `【示範作品】此章僅供測試章節順序與翻頁。\n\n第二天清晨，窗邊多了一小束花。花瓶旁壓著一張紙，上面只寫著：「往前走的時候，也可以偶爾回頭。」我把它讀了兩遍，才想起昨晚忘了問那個人的名字。\n\n我沿著石板路走到街角。白天的${place}和夜裡不同，窗戶都敞開著，風吹動晾在繩上的床單，像一排還沒有寫上文字的書頁。\n\n在路的盡頭，我看見一間很小的郵局。門口的木牌歪了一點，有人正踮著腳把它扶正。我走上前去，終於把那封信從口袋裡拿了出來。\n\n「沒有地址，也能寄出去嗎？」我問。對方看了看信封，又抬頭看著我，說：「也許你得先知道，這封信真正要交給誰。」\n\n我沒有立刻回答。陽光穿過樹葉，在信封上留下細小的影子。原來有些路，並不是為了抵達遠方，而是為了讓自己帶著不同的心情，回到曾經出發的地方。\n\n【示範試閱結束】你可以闔上書本，回到書架選擇其他作品。正式小說將以作者提供的原文取代這些測試內容。` },
+];
+export const demoBooks: Book[] = [
+  { id: 'demo-moon', slug: 'moonlit-forest', title: '月光落下的森林', subtitle: '在夜色深處，尋找一條回家的路', author: '示範作品・非正式創作', summary: '一封沒有地址的信，帶領旅人走進只在月光下出現的森林。那些被遺忘的故事，正安靜等待下一個聽眾。', status: '試閱', tags: ['奇幻', '成長', '親情'], primaryTag: '奇幻', shelfOrder: 1, chapters: chapters('月光森林'), demo: true },
+  { id: 'demo-flower', slug: 'last-flower', title: '最後一朵花開', subtitle: '有些告別，會在春天重新盛開', author: '示範作品・非正式創作', summary: '當一座花園只剩下最後一朵花，守園人開始整理那些來不及說出口的話。關於告別，也關於記得。', status: '試閱', tags: ['悲劇', '救贖'], primaryTag: '悲劇', shelfOrder: 2, chapters: chapters('花園小鎮'), demo: true },
+  { id: 'demo-house', slug: 'a-light-at-home', title: '為你留一盞燈', subtitle: '走得再遠，總有一個地方等你', author: '示範作品・非正式創作', summary: '離家多年的旅人回到老街，發現那扇窗裡的燈，始終沒有熄滅。一段關於家與重新理解彼此的旅程。', status: '試閱', tags: ['親情', '成長'], primaryTag: '親情', shelfOrder: 3, chapters: chapters('老街'), demo: true },
+  { id: 'demo-tale', slug: 'the-moon-postman', title: '月亮郵差', subtitle: '寄給每一個還願意相信的人', author: '示範作品・非正式創作', summary: '月亮每晚都會收到一封信，卻從來不知道寄件人的名字。小小郵差決定沿著星光，尋找信的來處。', status: '試閱', tags: ['童話', '奇幻'], primaryTag: '童話', shelfOrder: 4, chapters: chapters('星光村'), demo: true },
+  { id: 'demo-key', slug: 'the-thirteenth-key', title: '第十三把鑰匙', subtitle: '每一扇門後，都有另一個答案', author: '示範作品・非正式創作', summary: '一棟只有十二個房間的老屋，卻留下十三把鑰匙。新來的管理員在雨夜聽見了一扇不存在的門。', status: '試閱', tags: ['懸疑', '救贖'], primaryTag: '懸疑', shelfOrder: 5, chapters: chapters('霧中老屋'), demo: true },
+];
